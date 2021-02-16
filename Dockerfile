@@ -56,7 +56,6 @@ ENV ODOO_VERSION 11.0
 ARG ODOO_RELEASE=20201204
 ARG ODOO_SHA=cf5c3c766ba42861ede4ec9b4027dfc910818a01
 RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/odoo_${ODOO_VERSION}.${ODOO_RELEASE}_all.deb \
-        && echo "${ODOO_SHA} odoo.deb" | sha1sum -c - \
         && apt-get update \
         && apt-get -y install --no-install-recommends ./odoo.deb\
         && rm -rf /var/lib/apt/lists/* odoo.deb
